@@ -12,10 +12,10 @@ import com.nikhil.xmeme.repositories.IMemeRepository;
 public class MemeService implements IMemeService {
 
     @Autowired
-    IMemeRepository memeRepository;
+    private IMemeRepository memeRepository;
 
     @Override
-    public Meme save(Meme meme) {
+    public Meme save(final Meme meme) {
         final Meme savedMeme = memeRepository.save(meme);
         return savedMeme;
     }

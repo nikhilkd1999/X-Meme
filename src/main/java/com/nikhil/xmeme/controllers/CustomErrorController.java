@@ -14,8 +14,8 @@ public class CustomErrorController implements ErrorController {
     private static final String PATH = "/error";
 
     @RequestMapping(value = PATH)
-    public String error(HttpServletRequest request) {
-        ModelAndView mav = new ModelAndView("error");
+    public String error(final HttpServletRequest request) {
+        final ModelAndView mav = new ModelAndView("error");
         mav.addObject("status", request.getAttribute(RequestDispatcher.ERROR_STATUS_CODE));
         mav.addObject("message", request.getAttribute(RequestDispatcher.ERROR_MESSAGE));
         return "error_page";

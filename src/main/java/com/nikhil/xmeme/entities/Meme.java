@@ -20,13 +20,13 @@ public class Meme {
     @Id
     private String id;
 
-    @JsonIgnore
-    private LocalDateTime timeStamp;
-
     private String name;
 
     private String url;
-    
+
     private String description;
+
+    @JsonIgnore
+    private LocalDateTime timeStamp;
 
 }
