@@ -1,39 +1,79 @@
 <!DOCTYPE html>
-<html lang="en" xmlns:th="http://www.thymeleaf.org" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
+<html lang="en">
 
 <head>
     <meta charset="UTF-8">
-    <title>All Memes</title>
+    <title>Create a Meme</title>
     <!-- Bootstrap CSS -->
-    <link rel="stylesheet" th:href="@{/webjars/bootstrap/5.0.2/css/bootstrap.min.css}">
+    <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.6.0/css/bootstrap.min.css" />
+    <style>
+        .form-container {
+            width: 30%;
+            margin-right: 5%;
+            margin-top: 5%;
+            margin-bottom: 5%;
+            float: left;
+        }
+
+        .memes-container {
+            width: 65%;
+            margin-top: 5%;
+            margin-bottom: 5%;
+            overflow-y: scroll;
+            height: 500px;
+        }
+
+        .card-img-top {
+            max-height: 400px;
+        }
+    </style>
+    <!-- Favicon -->
+    <!-- <link rel="icon" type="image/png" th:href="@{/icons8-super-mario-32.png}" /> -->
+
 </head>
 
 <body>
-
     <div class="container">
-
-        <button type="button" class="btn btn-primary" onclick="location.href='/add-meme';">Add Meme</button>
-        <h1 class="text-center mb-4">All Memes</h1>
-
+        <h1>Create a Meme</h1>
         <div class="row">
-
-            <!-- Loop through each meme and render an image with description -->
-            <div class="col-lg-4 col-md-6 col-sm-12 mb-4" th:each="meme : ${memes}">
-                <div class="card">
-                    <img th:src="${meme.url}" class="card-img-top" alt="Meme Image"
-                        style="width: 400px; height: 400px;">
-                    <div class="card-body">
-                        <p class="card-text" th:text="${meme.description}"></p>
+            <div class="form-container">
+                <form th:action="@{/save-meme}" method="post">
+                    <div class="form-group">
+                        <label for="name">Meme Name:</label>
+                        <input type="text" id="name" name="name" class="form-control" />
+                    </div>
+                    <div class="form-group">
+                        <label for="url">Meme Image URL:</label>
+                        <input type="text" id="url" name="url" class="form-control" />
+                    </div>
+                    <div class="form-group">
+                        <label for="description">Meme Description:</label>
+                        <input type="text" id="description" name="description" class="form-control" />
+                    </div>
+                    <button type="submit" class="btn btn-primary">Save Meme</button>
+                </form>
+            </div>
+            <div class="memes-container">
+                <h1 class="text-center mb-4">All Memes</h1>
+                <div class="row">
+                    <!-- Loop through each meme and render an image with description -->
+                    <div class="col-lg-4 col-md-6 col-sm-12 mb-4" th:each="meme : ${memes}">
+                        <div class="card">
+                            <img th:src="${meme.url}" class="card-img-top" alt="Meme Image">
+                            <div class="card-body">
+                                <p class="card-text" th:text="${meme.description}"></p>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
-
         </div>
-
     </div>
-
+    <!-- jQuery -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
     <!-- Bootstrap JS -->
-    <script th:src="@{/webjars/bootstrap/5.0.2/js/bootstrap.bundle.min.js}"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.6.0/js/bootstrap.bundle.min.js"></script>
 
 </body>
 
