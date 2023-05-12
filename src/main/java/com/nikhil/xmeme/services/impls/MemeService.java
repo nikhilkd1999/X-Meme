@@ -1,4 +1,4 @@
-package com.nikhil.xmeme.services;
+package com.nikhil.xmeme.services.impls;
 
 import java.util.List;
 
@@ -7,6 +7,7 @@ import org.springframework.stereotype.Service;
 
 import com.nikhil.xmeme.entities.Meme;
 import com.nikhil.xmeme.repositories.IMemeRepository;
+import com.nikhil.xmeme.services.IMemeService;
 
 @Service
 public class MemeService implements IMemeService {

@@ -3,7 +3,7 @@
 
 <head>
     <meta charset="UTF-8">
-    <title>Create a Meme</title>
+    <title>Memes</title>
     <!-- Bootstrap CSS -->
     <link rel="stylesheet"
         href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.6.0/css/bootstrap.min.css" />
@@ -21,11 +21,17 @@
             margin-top: 5%;
             margin-bottom: 5%;
             overflow-y: scroll;
+            overflow-x: hidden;
             height: 500px;
         }
 
         .card-img-top {
             max-height: 400px;
+        }
+
+        body {
+            overflow-x: hidden;
+            overflow-y: hidden;
         }
     </style>
     <!-- Favicon -->
@@ -35,13 +41,13 @@
 
 <body>
     <div class="container">
-        <h1>Create a Meme</h1>
         <div class="row">
             <div class="form-container">
+                <h1>Post a Meme</h1>
                 <form th:action="@{/save-meme}" method="post">
                     <div class="form-group">
-                        <label for="name">Meme Name:</label>
-                        <input type="text" id="name" name="name" class="form-control" />
+                        <label for="title">Meme Title:</label>
+                        <input type="text" id="title" name="title" class="form-control" />
                     </div>
                     <div class="form-group">
                         <label for="url">Meme Image URL:</label>
@@ -55,7 +61,7 @@
                 </form>
             </div>
             <div class="memes-container">
-                <h1 class="text-center mb-4">All Memes</h1>
+                <!-- <h1 class="text-center mb-4">All Memes</h1> -->
                 <div class="row">
                     <!-- Loop through each meme and render an image with description -->
                     <div class="col-lg-4 col-md-6 col-sm-12 mb-4" th:each="meme : ${memes}">

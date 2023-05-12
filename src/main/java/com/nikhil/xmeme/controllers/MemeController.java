@@ -49,7 +49,7 @@ public class MemeController {
     @PostMapping("/save-meme")
     public String saveMeme(@RequestParam MultiValueMap<String, String> formData) {
         final Meme meme = new Meme();
-        meme.setName(formData.getFirst("name"));
+        meme.setTitle(formData.getFirst("title"));
         meme.setDescription(formData.getFirst("description"));
         meme.setUrl(formData.getFirst("url"));
         meme.setTimeStamp(LocalDateTime.now());

@@ -20,7 +20,7 @@ public class Meme {
     @Id
     private String id;
 
-    private String name;
+    private String title;
 
     private String url;
 
