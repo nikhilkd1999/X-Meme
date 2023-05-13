@@ -10,4 +10,8 @@ public interface IMemeService {
 
     List<Meme> getAllMemes();
 
+    Meme findMemeById(String id);
+
+    void deleteMeme(Meme meme);
+
 }

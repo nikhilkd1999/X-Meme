@@ -35,4 +35,15 @@ public class MemeService implements IMemeService {
         return allMemes;
     }
 
+    @Override
+    public Meme findMemeById(String id) {
+        
+        return memeRepository.findById(id).get();
+        
+    }
+    @Override
+    public void deleteMeme(Meme meme) {
+        memeRepository.delete(meme);
+    }
+
 }
